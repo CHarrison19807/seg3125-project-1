@@ -147,7 +147,8 @@
           .textContent.split("$")[1];
 
         const newUrl = new URL(window.location.origin);
-        newUrl.pathname = "/confirmation";
+
+        newUrl.pathname = "seg3125-project-1/confirmation";
         newUrl.searchParams.append("name", name);
         newUrl.searchParams.append("email", email);
         newUrl.searchParams.append("service", service);
