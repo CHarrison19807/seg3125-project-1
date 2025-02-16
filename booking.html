@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="public/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SpinCycle</title>
+  </head>
+  <body>
+    <header>
+      <a class="header-logo" href="/">
+        <img src="public/logo.png" alt="SpinCycle" class="header-logo-image" />
+        <p class="header-logo-text">SpinCycle</p>
+      </a>
+      <div class="header-links">
+        <a class="header-link active-link" href="services.html">Services </a>
+        <a class="header-link" href="technicians.html">Our Technicians </a>
+        <a class="header-link" href="info.html">Contact Us </a>
+      </div>
+    </header>
+
+    <main class="booking-main">
+      <h1 class="booking-title">
+        Complete the below form to make an appointment!
+      </h1>
+      <form class="booking-form" id="booking-form">
+        <label class="booking-label" for="name">Name</label>
+        <input
+          class="booking-input"
+          type="text"
+          id="name"
+          name="name"
+          required
+        />
+        <label class="booking-label" for="email">Email</label>
+        <input
+          class="booking-input"
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+        <label class="booking-label" for="service">Service</label>
+        <select class="booking-input" id="service" name="service" required>
+          <option value="">Select a service</option>
+          <option value="Brake Adjustment">Brake Adjustment</option>
+          <option value="Pedal Installation">Pedal Installation</option>
+          <option value="Frame Adjustment">Frame Adjustment</option>
+          <option value="Suspension Tuning">Suspension Tuning</option>
+          <option value="Wheel Tuning">Wheel Tuning</option>
+          <option value="Flat Tire Replacement">Flat Tire Replacement</option>
+        </select>
+        <label class="booking-label" for="date">Date</label>
+        <input
+          class="booking-input"
+          type="date"
+          id="date"
+          name="date"
+          max="2030-12-31"
+          required
+        />
+        <label class="booking-label" for="time">Time</label>
+        <input
+          class="booking-input"
+          type="time"
+          id="time"
+          name="time"
+          max="17:00"
+          min="09:00"
+          step="900"
+          required
+        />
+        <p class="booking-price">Price: $0</p>
+        <button class="booking-button" type="submit">Book Now</button>
+      </form>
+    </main>
+
+    <footer>
+      <div class="footer-copyright">
+        <p class="copyright">&#9400;</p>
+        <p class="footer-copyright-text">2025 All Rights Reserved</p>
+      </div>
+      <div class="footer-links">
+        <a class="footer-link" href="#">Terms and Conditions</a>
+        <a class="footer-link" href="#">Privacy Policy</a>
+        <a class="footer-link" href="#">Cookie Policy</a>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const searchParams = new URLSearchParams(window.location.search);
+    const service = searchParams.get("service");
+    const price = searchParams.get("price");
+
+    if (service) {
+      document.getElementById("service").disabled = true;
+      document.getElementById("service").value = service;
+      document.querySelector(".booking-price").textContent = `Price: $${price}`;
+    }
+
+    const today = new Date();
+    document
+      .getElementById("date")
+      .setAttribute("min", today.toISOString().split("T")[0]);
+
+    document.getElementById("service").addEventListener("change", (event) => {
+      const service = event.target.value;
+      let price = 0;
+
+      switch (service) {
+        case "Brake Adjustment":
+          price = 20;
+          break;
+        case "Pedal Installation":
+          price = 30;
+          break;
+        case "Frame Adjustment":
+          price = 40;
+          break;
+        case "Suspension Tuning":
+          price = 25;
+          break;
+        case "Wheel Tuning":
+          price = 35;
+          break;
+        case "Flat Tire Replacement":
+          price = 50;
+          break;
+      }
+
+      document.querySelector(".booking-price").textContent = `Price: $${price}`;
+    });
+
+    document
+      .getElementById("booking-form")
+      .addEventListener("submit", function (event) {
+        console.log("HERE");
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const service = document.getElementById("service").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const price = document
+          .querySelector(".booking-price")
+          .textContent.split("$")[1];
+
+        const newUrl = new URL(window.location.origin);
+        newUrl.pathname = "/confirmation.html";
+        newUrl.searchParams.append("name", name);
+        newUrl.searchParams.append("email", email);
+        newUrl.searchParams.append("service", service);
+        newUrl.searchParams.append("date", date);
+        newUrl.searchParams.append("time", time);
+        newUrl.searchParams.append("price", price);
+
+        window.location.href = newUrl.href;
+      });
+  </script>
+</html>

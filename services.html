@@ -6,7 +6,6 @@
     <link rel="icon" type="image/x-icon" href="public/logo.png" />
     <link rel="stylesheet" href="style.css" />
     <title>SpinCycle</title>
-    <style></style>
   </head>
   <body>
     <header>
@@ -30,7 +29,7 @@
             We proudly offer specialized brake adjustment services tailored to
             enhance braking performance.
           </p>
-          <a><button class="index-button">Book Now</button></a>
+          <button class="index-button">Book Now</button>
         </div>
 
         <div class="service-box">
@@ -39,7 +38,7 @@
             Our pedal installation service includes testing to guarantee a
             secure and reliable performance.
           </p>
-          <a><button class="index-button">Book Now</button></a>
+          <button class="index-button">Book Now</button>
         </div>
 
         <div class="service-box">
@@ -48,7 +47,7 @@
             Our bike workshop offers a technical frame alignment service to
             ensure the bike rides smoothly.
           </p>
-          <a><button class="index-button">Book Now</button></a>
+          <button class="index-button">Book Now</button>
         </div>
 
         <div class="service-box">
@@ -57,7 +56,7 @@
             Our suspension tuning service process begins with a complete
             assessment of your bike&apos;s current setup.
           </p>
-          <a><button class="index-button">Book Now</button></a>
+          <button class="index-button">Book Now</button>
         </div>
 
         <div class="service-box">
@@ -66,7 +65,7 @@
             We specialize in expert wheel tuning services to ensure our
             customers smooth, reliable, and safe rides.
           </p>
-          <a><button class="index-button">Book Now</button></a>
+          <button class="index-button">Book Now</button>
         </div>
 
         <div class="service-box">
@@ -75,7 +74,7 @@
             Get back on the road fast with our flat tire replacement service,
             ensuring your bike is ready for your next adventure!
           </p>
-          <a><button class="index-button">Book Now</button></a>
+          <button class="index-button">Book Now</button>
         </div>
       </div>
     </main>
@@ -92,4 +91,23 @@
       </div>
     </footer>
   </body>
+
+  <script>
+    const services = document.querySelectorAll(".service-box");
+    services.forEach((service) => {
+      const serviceTitle = service.querySelector(".service-title").textContent;
+      const serviceName = serviceTitle.split(" - ")[0];
+      const servicePrice = serviceTitle.split(" - ")[1].split("$")[1];
+
+      service.querySelector("button").addEventListener("click", () => {
+        const url = new URL(window.location.origin);
+
+        url.pathname = "/booking.html";
+        url.searchParams.append("service", serviceName);
+        url.searchParams.append("price", servicePrice);
+
+        window.location.href = url.href;
+      });
+    });
+  </script>
 </html>

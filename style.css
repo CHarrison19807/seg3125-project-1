@@ -219,3 +219,61 @@ footer {
   text-align: center;
   font-size: 18px;
 }
+
+.booking-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 300px;
+}
+
+.booking-title {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.booking-form,
+.booking-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.booking-label {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.booking-detail {
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.booking-input {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.booking-price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.booking-button {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: #484eb8;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+}
+
+.booking-button:hover {
+  background-color: #3a3f8c;
+}

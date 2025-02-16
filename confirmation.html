@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="public/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SpinCycle</title>
+  </head>
+  <body>
+    <header>
+      <a class="header-logo" href="/">
+        <img src="public/logo.png" alt="SpinCycle" class="header-logo-image" />
+        <p class="header-logo-text">SpinCycle</p>
+      </a>
+      <div class="header-links">
+        <a class="header-link active-link" href="services.html">Services </a>
+        <a class="header-link" href="technicians.html">Our Technicians </a>
+        <a class="header-link" href="info.html">Contact Us </a>
+      </div>
+    </header>
+
+    <main class="booking-main">
+      <h1 class="booking-title">Thank you for choosing SpinCycle!</h1>
+      <div class="booking-details" id="booking-details">
+        <p class="booking-label">Name</p>
+        <p id="name" class="booking-detail"></p>
+        <p class="booking-label">Email</p>
+        <p id="email" class="booking-detail"></p>
+        <p class="booking-label">Service</p>
+        <p id="service" class="booking-detail"></p>
+        <p class="booking-label">Date</p>
+        <p id="date" class="booking-detail"></p>
+        <p class="booking-label">Time</p>
+        <p id="time" class="booking-detail"></p>
+        <p class="booking-label">Price</p>
+        <p id="price" class="booking-detail"></p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-copyright">
+        <p class="copyright">&#9400;</p>
+        <p class="footer-copyright-text">2025 All Rights Reserved</p>
+      </div>
+      <div class="footer-links">
+        <a class="footer-link" href="#">Terms and Conditions</a>
+        <a class="footer-link" href="#">Privacy Policy</a>
+        <a class="footer-link" href="#">Cookie Policy</a>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const searchParams = new URLSearchParams(window.location.search);
+    const service = searchParams.get("service");
+    const price = searchParams.get("price");
+    const name = searchParams.get("name");
+    const email = searchParams.get("email");
+    const date = searchParams.get("date");
+    const time = searchParams.get("time");
+
+    document.getElementById("service").innerHTML = service;
+    document.getElementById("date").innerHTML = date;
+    document.getElementById("time").innerHTML = time;
+    document.getElementById("price").innerHTML = ` $${price}`;
+    document.getElementById("name").innerHTML = name;
+    document.getElementById("email").innerHTML = email;
+  </script>
+</html>
