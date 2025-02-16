@@ -14,9 +14,9 @@
         <p class="header-logo-text">SpinCycle</p>
       </a>
       <div class="header-links">
-        <a class="header-link active-link" href="services.html">Services </a>
-        <a class="header-link" href="technicians.html">Our Technicians </a>
-        <a class="header-link" href="info.html">Contact Us </a>
+        <a class="header-link active-link" href="services">Services </a>
+        <a class="header-link" href="technicians">Our Technicians </a>
+        <a class="header-link" href="info">Contact Us </a>
       </div>
     </header>
 
@@ -147,7 +147,7 @@
           .textContent.split("$")[1];
 
         const newUrl = new URL(window.location.origin);
-        newUrl.pathname = "/confirmation.html";
+        newUrl.pathname = "/confirmation";
         newUrl.searchParams.append("name", name);
         newUrl.searchParams.append("email", email);
         newUrl.searchParams.append("service", service);
