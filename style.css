@@ -179,3 +179,43 @@ footer {
   text-align: center;
   font-size: 18px;
 }
+
+.services-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 300px;
+}
+
+.services-heading {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.services-display {
+  flex-wrap: wrap;
+  display: flex;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.service-box {
+  width: 400px;
+  border-radius: 8%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.service-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.service-description {
+  text-align: center;
+  font-size: 18px;
+}
