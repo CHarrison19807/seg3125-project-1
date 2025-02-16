@@ -157,5 +157,14 @@
 
         window.location.href = newUrl.href;
       });
+
+    document.getElementById("date").addEventListener("input", function (e) {
+      const day = new Date(this.value).getUTCDay();
+      if ([6, 0].includes(day)) {
+        e.preventDefault();
+        this.value = "";
+        alert("Sorry, we are closed on weekends!");
+      }
+    });
   </script>
 </html>
